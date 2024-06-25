@@ -35,28 +35,29 @@ const Payment = () => {
 
     // token creation api call here
 
-    const myHeaders = new Headers();
-    myHeaders.append("accept", "*/*");
-    myHeaders.append(
-      "Authorization",
-      "Bearer eyJraWQiOiJnRTREYkxmTzMwT0N2TCs2QmQ1UkNuVWJrTUxKN0ZVaTB1S2FoalQrUm9FPSIsImFsZyI6IlJTMjU2In0.eyJzdWIiOiJjOTNlYTQ4OC04MGYxLTcwMzEtOGRlZC0zNWMxNzE5YmY2YjYiLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwiaXNzIjoiaHR0cHM6XC9cL2NvZ25pdG8taWRwLmFwLXNvdXRoZWFzdC0yLmFtYXpvbmF3cy5jb21cL2FwLXNvdXRoZWFzdC0yX3FmSnBMMFJGMCIsImNvZ25pdG86dXNlcm5hbWUiOiJhd2Fpc2NsaWVudCIsInByZWZlcnJlZF91c2VybmFtZSI6ImF3YWlzQ2xpZW50IiwiZ2l2ZW5fbmFtZSI6IkF3YWlzIiwib3JpZ2luX2p0aSI6IjU3NjY1MGRiLTk1MTgtNGZkZS1hNGVkLTI0MzA1MDVkZjgwZCIsImF1ZCI6IjVpbzczaWE2amU0MWM3ODVsMTI4aHY5YzRvIiwiZXZlbnRfaWQiOiJhZTNhYTJlYS1kM2E4LTQ3OWItODUwNS0xZTUyNjU4ZmU1NDUiLCJ0b2tlbl91c2UiOiJpZCIsImF1dGhfdGltZSI6MTcxODQyMTc0OSwiZXhwIjoxNzE5MDM3NzM1LCJjdXN0b206cm9sZSI6ImNsaWVudCIsImlhdCI6MTcxODk1MTMzNSwiZmFtaWx5X25hbWUiOiJLaGFsaWQiLCJqdGkiOiJkN2U0MjllMC1iMjMzLTQwNTEtOTg2NC1lYjIxYmQ0OWQxMDgiLCJlbWFpbCI6ImF3YWlzLmtoYWxpZCtBQ2xpZW50QGVoc2FhbnRlY2guY29tIn0.mnjBa29dvf41Bi9HUYY2XVOD-hPt1ZD1dv2_eP9JQU-DfRqA7XUe8joBTT_poGcnjuz-x0pJrYmMtWHdK2UjDTKdO7Xhf1w6v2EJ96cKIElC0nx6-rpkMINN_vf0zC9RWxHc0r8HmJRKET3-vXY9_gE-QS7OHTEfYrYl0Q3OMYtzKnxSHrXs5BWVILLAdIBVeS-EG3MQ95btlM8XsaeZC22qq1GNKa6P6uch4VLyOB12EKEAzb4Ty7HQzBREQHUoz6bO7Ft-gk5r2kfvKS2y83A3T0jazEtc0xiGrSAjDK2_drzjZvl1vpdepZIrS4G6QGnxyXey474i6sb31anpZA"
-    );
+    // const myHeaders = new Headers();
+    // myHeaders.append("accept", "*/*");
+    // myHeaders.append(
+    //   "Authorization",
+    //   "Bearer eyJraWQiOiJnRTREYkxmTzMwT0N2TCs2QmQ1UkNuVWJrTUxKN0ZVaTB1S2FoalQrUm9FPSIsImFsZyI6IlJTMjU2In0.eyJzdWIiOiJlOTllYTQwOC02MDkxLTcwMGQtNjdkMy1kNWRiYTk3ZDE3NmMiLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwiaXNzIjoiaHR0cHM6XC9cL2NvZ25pdG8taWRwLmFwLXNvdXRoZWFzdC0yLmFtYXpvbmF3cy5jb21cL2FwLXNvdXRoZWFzdC0yX3FmSnBMMFJGMCIsImNvZ25pdG86dXNlcm5hbWUiOiJuZWFsZGF2aXMiLCJwcmVmZXJyZWRfdXNlcm5hbWUiOiJOZWFsRGF2aXMiLCJnaXZlbl9uYW1lIjoiTmVhbCIsIm9yaWdpbl9qdGkiOiI0YTc4Mzc4Yi02OTk1LTQxNGMtYmYyYS04OGVmYmUyMWI1NzciLCJhdWQiOiI1aW83M2lhNmplNDFjNzg1bDEyOGh2OWM0byIsImV2ZW50X2lkIjoiMzc3YzlhZGUtZTZlNy00ZDhhLWIyYzYtYjFmZDA4NjUwZmJkIiwidG9rZW5fdXNlIjoiaWQiLCJhdXRoX3RpbWUiOjE3MTkyNTM3MjUsImV4cCI6MTcxOTM4MjE3NCwiY3VzdG9tOnJvbGUiOiJjbGllbnQiLCJpYXQiOjE3MTkyOTU3NzQsImZhbWlseV9uYW1lIjoiRGF2aXMiLCJqdGkiOiI2MTI1MTk3Ni1lOTIyLTQ5ZGItOGEwMy1lZmE5ZjRlOWNlMWIiLCJlbWFpbCI6Im5laGFsbmFzaXJraGFuNDA5QGdtYWlsLmNvbSJ9.KYW3oVEshHKzyOfDt8MXhASggLi-tkH7t4rT7yy_NNALzVKJuTHAdHqPgQjSasXWKBRdxbeI_3zGcVPP84Zi6w3vW5eFWtPGS5wDuPDF1VosLyIxqwYrLqmlmlGtF35bGw-ITsspqQjp3vuBjGXiOpGK1xVHaRInk44NATA7FOeW-XrhQ_Zg5V_92lsTV1QAOANaBFu0PcV67VY0Xxj72DwmNruLSyhEBAOUnLrzMFrUBHgCObOwg1Z7VE_hWnwlcTJ6mqYXvHyyrKwn-VWsC2f2LbHkQW88B3l9eDVhvLTI2N1kyXidIFy-2M1Th8FCmGsE_XP2oTleGOHAXzXw5Q"
+    // );
 
-    const requestOptions = {
-      method: "POST",
-      headers: myHeaders,
-      redirect: "follow",
-    };
+    // const requestOptions = {
+    //   method: "POST",
+    //   headers: myHeaders,
+    //   redirect: "follow",
+    // };
 
-    let response = await fetch(
-      "https://81pwcn4d-3000.euw.devtunnels.ms/api/v1/payments/cards/setup-intent",
-      requestOptions
-    );
+    // let response = await fetch(
+    //   "https://81pwcn4d-3000.euw.devtunnels.ms/api/v1/payments/cards/setup-intent",
+    //   requestOptions
+    // );
 
-    response = await response.json();
-    console.log("🚀 ~ handleConfirm ~ response:", response);
+    // response = await response.json();
+    // console.log("🚀 ~ handleConfirm ~ response:", response);
 
-    const clientSecret = response?.data?.client_secret;
+    const clientSecret =
+      "seti_1PVUJl06HpHstD8MePqeZxZX_secret_QMCjh1ggjqa8u7WKJ5IENI8UF9LutVZ";
     console.log("🚀 ~ handleConfirm ~ clientSecret:", clientSecret);
 
     // Confirm the SetupIntent using the details collected by the Payment Element
@@ -65,13 +66,17 @@ const Payment = () => {
     const return_url = window.location.href + "/confirm-setup";
     console.log("🚀 ~ handleConfirm ~ return_url:", return_url);
 
-    const { error } = await stripe.confirmSetup({
+    const setupRes = await stripe.confirmSetup({
       elements,
       clientSecret,
       confirmParams: {
         return_url,
       },
     });
+
+    console.log("🚀 ~ handleConfirm ~ setupRes:", setupRes);
+
+    const { error } = setupRes;
 
     if (error) {
       // This point is only reached if there's an immediate error when
