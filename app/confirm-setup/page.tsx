@@ -41,7 +41,7 @@ const ConfirmSetup = () => {
 
       // Attach the payment method to the customer
       const attachResponse = await fetch(
-        "https://81pwcn4d-3000.euw.devtunnels.ms/api/v1/payments/cards/setup-intent",
+        "https://81pwcn4d-3000.euw.devtunnels.ms/api/v1/payments/cards/attach",
         {
           method: "POST",
           headers: {
@@ -51,7 +51,7 @@ const ConfirmSetup = () => {
             "Content-Type": "application/json",
           },
           body: JSON.stringify({
-            setup_intent_client_secret: setup_intent_client_secret,
+            cardToken: setupIntent.setupIntent.payment_method,
           }),
         }
       );
